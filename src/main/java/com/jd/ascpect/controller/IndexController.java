@@ -1,13 +1,17 @@
 package com.jd.ascpect.controller;
 
+import com.jd.ascpect.common.api.ApiResponse;
+import com.jd.ascpect.common.enums.CodeStatus;
 import com.jd.ascpect.pojo.User;
 import com.jd.ascpect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Map;
 
@@ -30,8 +34,12 @@ public class IndexController {
 
     @GetMapping("/get/user/{id}")
     @ResponseBody
-    public User selectUserById(@PathVariable("id") Integer id) {
-        return userService.selectOne(id);
+    public ApiResponse selectUserById(@PathVariable("id") Integer id) {
+        User user = userService.selectOne(id);
+        if (null == user) {
+            return ApiResponse.ofStatus(CodeStatus.BAD_REQUEST);
+        }
+        return ApiResponse.ofSuccess(user);
     }
 
 }

@@ -5,6 +5,7 @@ import com.jd.ascpect.common.annotation.JMethod;
 import com.jd.ascpect.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 /**
  * @author xuzhangwang
@@ -13,7 +14,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    @JMethod(module = "用户管理", remark = "根据用户ID查询信息", operateType = "SELECT")
     @Select("select * from t_user where id=#{id}")
     User selectOne(Integer id);
 
