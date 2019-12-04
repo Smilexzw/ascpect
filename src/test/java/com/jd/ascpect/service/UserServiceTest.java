@@ -17,6 +17,5 @@ public class UserServiceTest extends ApplicationTests {
 
     @Test
     public void selectOne() {
-        userService.selectOne(1000);
     }
 }

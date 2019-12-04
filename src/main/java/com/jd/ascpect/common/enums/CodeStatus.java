@@ -10,6 +10,7 @@ public enum  CodeStatus {
 
     /** 成功 */
     SUCCESS(200, "OK"),
+    FAIL(-1, "Fail"),
     /** 错误请求 */
     BAD_REQUEST(400, "Bad Request"),
     /** 资源没有找到 */
@@ -20,6 +21,7 @@ public enum  CodeStatus {
     NOT_ACCEPTABLE(406, "Not Acceptable"),
     /** 服务器错误 */
     INTER_SERVER_ERROR(500, "Internal Server Error");
+
 
     /** 状态码 */
     private int code;

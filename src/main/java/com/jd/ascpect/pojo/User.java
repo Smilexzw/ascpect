@@ -1,27 +1,15 @@
 package com.jd.ascpect.pojo;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import java.io.Serializable;
+import lombok.Data;
 
 /**
  * @author xuzhangwang
- * @date 2019/11/8 17:03
+ * @date 2019/12/2 21:24
  */
-@Setter
-@Getter
-public class User implements Serializable {
-
-    private Integer id;
-
-    private String username;
-
-    private String password;
-
+@Data
+public class User {
+    private Long id;
+    private String name;
+    private Integer age;
     private String email;
-
-    private String phone;
-
-    private Integer gender;
 }

@@ -1,19 +1,13 @@
 package com.jd.ascpect.controller;
 
-import com.jd.ascpect.common.api.ApiResponse;
-import com.jd.ascpect.common.enums.CodeStatus;
-import com.jd.ascpect.pojo.User;
+
 import com.jd.ascpect.service.UserService;
-import org.apache.commons.lang.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +17,7 @@ import java.util.Map;
  * @date 2019/11/8 15:14
  */
 @Controller
+@Slf4j
 public class IndexController {
 
     @Autowired
@@ -33,24 +28,6 @@ public class IndexController {
     public String index(@PathVariable("username") String username, Model model) {
         model.addAttribute("username", username);
         return "index";
-    }
-
-    @GetMapping("/get/user/{id}")
-    @ResponseBody
-    public ApiResponse selectUserById(@PathVariable("id") Integer id) {
-        User user = userService.selectOne(id);
-        if (null == user) {
-            return ApiResponse.ofStatus(CodeStatus.BAD_REQUEST);
-        }
-        return ApiResponse.ofSuccess(user);
-    }
-
-    @GetMapping("/get/user/map/{id}")
-    @ResponseBody
-    public Map<String, Object> objectToMap(@PathVariable("id") Integer id) {
-        User user = userService.selectOne(id);
-        Map<String, Object> map = objectToMap(user);
-        return map;
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.jd.ascpect.service;
 
-import com.jd.ascpect.pojo.User;
+
 
 /**
  * @author xuzhangwang
@@ -8,6 +8,6 @@ import com.jd.ascpect.pojo.User;
  */
 public interface UserService {
 
-    User selectOne(Integer id);
+
 
 }
