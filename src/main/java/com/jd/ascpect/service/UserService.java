@@ -1,6 +1,10 @@
 package com.jd.ascpect.service;
 
 
+import com.github.pagehelper.PageInfo;
+import com.jd.ascpect.pojo.User;
+
+import java.util.List;
 
 /**
  * @author xuzhangwang
@@ -8,6 +12,8 @@ package com.jd.ascpect.service;
  */
 public interface UserService {
 
+    List<User> findAll();
 
+    PageInfo<User> findByPage(Integer pageNum, Integer pageSize);
 
 }

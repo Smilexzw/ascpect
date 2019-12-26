@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jd.ascpect.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.jd.ascpect.pojo.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <id column="name" jdbcType="INTEGER" property="name"/>
+        <id column="age" jdbcType="INTEGER" property="age"/>
+        <id column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from user
+    </select>
+</mapper>
+    

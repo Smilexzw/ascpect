@@ -23,7 +23,6 @@ public class IndexController {
     @Autowired
     UserService userService;
 
-
     @GetMapping("/get/aaa/{username}")
     public String index(@PathVariable("username") String username, Model model) {
         model.addAttribute("username", username);
